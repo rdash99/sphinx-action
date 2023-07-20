@@ -1,8 +1,9 @@
-FROM sphinxdoc/sphinx:2.4.4
+FROM sphinxdoc/sphinx
 
-LABEL "maintainer"="Ammar Askar <ammar@ammaraskar.com>"
+LABEL "maintainer"="Rowan Dash <rowandash@swansea.ac.uk>"
 
 ADD entrypoint.py /entrypoint.py
 ADD sphinx_action /sphinx_action
+RUN pip install -r /sphinx_action/requirements.txt
 
 ENTRYPOINT ["/entrypoint.py"]
